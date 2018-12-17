@@ -5,6 +5,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SaEBase", "SaEBase\SaEBase.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCPServertest", "TCPServertest\TCPServertest.vcxproj", "{B7C905C1-BDD0-4BDE-A095-BD82210941E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlogtext", "xlogtext\xlogtext.vcxproj", "{7C6FD3CA-32FD-4DAB-8858-887D6A95BFE1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smartptrTest", "smartptrTest\smartptrTest.vcxproj", "{0FC43AD0-D05E-4AC2-B709-86F06164533B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +23,14 @@ Global
 		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Debug|Win32.Build.0 = Debug|Win32
 		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Release|Win32.ActiveCfg = Release|Win32
 		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Release|Win32.Build.0 = Release|Win32
+		{7C6FD3CA-32FD-4DAB-8858-887D6A95BFE1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7C6FD3CA-32FD-4DAB-8858-887D6A95BFE1}.Debug|Win32.Build.0 = Debug|Win32
+		{7C6FD3CA-32FD-4DAB-8858-887D6A95BFE1}.Release|Win32.ActiveCfg = Release|Win32
+		{7C6FD3CA-32FD-4DAB-8858-887D6A95BFE1}.Release|Win32.Build.0 = Release|Win32
+		{0FC43AD0-D05E-4AC2-B709-86F06164533B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FC43AD0-D05E-4AC2-B709-86F06164533B}.Debug|Win32.Build.0 = Debug|Win32
+		{0FC43AD0-D05E-4AC2-B709-86F06164533B}.Release|Win32.ActiveCfg = Release|Win32
+		{0FC43AD0-D05E-4AC2-B709-86F06164533B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
