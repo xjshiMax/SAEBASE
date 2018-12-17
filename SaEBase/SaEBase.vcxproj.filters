@@ -60,6 +60,24 @@
     <ClInclude Include="..\base\include\xAtomicInt32.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\include\xthreadbase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\timebase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xAutoLock.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xHelpstring.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xTaskqueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xthreadPool.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
