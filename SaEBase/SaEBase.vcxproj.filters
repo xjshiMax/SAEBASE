@@ -48,6 +48,18 @@
     <ClInclude Include="..\base\include\xDemultiplexerSelect.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\include\xdatetime.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xlog.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xsmartPtr.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xAtomicInt32.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
