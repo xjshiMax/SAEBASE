@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SaEBase", "SaEBase\SaEBase.vcxproj", "{FBDBFBAF-53EB-47AF-95F6-57C8BDA0B0F8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCPServertest", "TCPServertest\TCPServertest.vcxproj", "{B7C905C1-BDD0-4BDE-A095-BD82210941E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBDBFBAF-53EB-47AF-95F6-57C8BDA0B0F8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FBDBFBAF-53EB-47AF-95F6-57C8BDA0B0F8}.Debug|Win32.Build.0 = Debug|Win32
+		{FBDBFBAF-53EB-47AF-95F6-57C8BDA0B0F8}.Release|Win32.ActiveCfg = Release|Win32
+		{FBDBFBAF-53EB-47AF-95F6-57C8BDA0B0F8}.Release|Win32.Build.0 = Release|Win32
+		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Debug|Win32.Build.0 = Debug|Win32
+		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Release|Win32.ActiveCfg = Release|Win32
+		{B7C905C1-BDD0-4BDE-A095-BD82210941E0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
