@@ -80,10 +80,14 @@
   <ItemGroup>
     <ClInclude Include="..\base\include\basesock.hpp" />
     <ClInclude Include="..\base\include\singleton.hpp" />
+    <ClInclude Include="..\base\include\xAtomicInt32.hpp" />
     <ClInclude Include="..\base\include\xbaseclass.hpp" />
+    <ClInclude Include="..\base\include\xdatetime.hpp" />
     <ClInclude Include="..\base\include\xDemultiplexerSelect.hpp" />
     <ClInclude Include="..\base\include\xEventDemultiplexer.hpp" />
+    <ClInclude Include="..\base\include\xlog.hpp" />
     <ClInclude Include="..\base\include\xReactor.hpp" />
+    <ClInclude Include="..\base\include\xsmartPtr.hpp" />
     <ClInclude Include="..\base\include\xTcpServerBase.hpp" />
     <ClInclude Include="..\base\include\xtimeheap.hpp" />
     <ClInclude Include="stdafx.h" />
