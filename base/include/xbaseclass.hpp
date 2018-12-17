@@ -42,4 +42,13 @@ public:
 
 	virtual int UnrequestEvent(handle_t handle)=0;
 };
+class Noncopyable
+{
+protected:
+	Noncopyable();
+	~Noncopyable();
+private:
+	Noncopyable(const Noncopyable&);
+	Noncopyable& operator=(const Noncopyable&);
+};
 }

@@ -30,6 +30,7 @@ public:
 #ifdef WIN32
 		GetSystemTimeAsFileTime((LPFILETIME)&m_starttime);
 		return m_starttime; 
+#endif
 	}
 	LONGLONG utilstartcount()  //从调用start开始到待用utilstartcount 走过的ns数
 	{

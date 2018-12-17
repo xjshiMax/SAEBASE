@@ -6,8 +6,10 @@
 #include <string>
 #include <list>
 #include "xAutoLock.hpp"
-#include "baseclass.hpp"
-#include "Threadbase.hpp"
+#include "xbaseclass.hpp"
+#include "xthreadbase.hpp"
+using namespace std;
+namespace SAEBASE{
 //任务对象的即基类。每个job都是xtaskbase派生类的对象
 class xtaskbase
 {
@@ -18,7 +20,7 @@ public:
 
 	}
 	virtual ~xtaskbase(){}
-	void setArg(void *arg){arg_=arg};
+	void setArg(void *arg){arg_=arg;};
 	virtual int run() = 0;
 protected:
 	void* arg_;
@@ -175,4 +177,5 @@ bool xthreadPool::waitforjob(xthreadPool pool,const struct timespec &timeout,OUT
 	return true;
 	//xAutoLock _(m_waitforjob);
 	//if()
+}
 }

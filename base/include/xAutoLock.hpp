@@ -4,14 +4,16 @@
 #pragma once
 #ifdef WIN32
 #include <Windows.h>
-#include "E:\workstation\Common\pthread\Pre-built.2\include\pthread.h"
-#pragma comment(lib,"E:\\workstation\\Common\\pthread\\Pre-built.2\\lib\\pthreadVC2.lib")
-#pragma comment(lib,"E:\\workstation\\Common\\pthread\\Pre-built.2\\lib\\pthreadVCE2.lib")
-#pragma comment(lib,"E:\\workstation\\Common\\pthread\\Pre-built.2\\lib\\pthreadVSE2.lib")
+#include "..\pthread\Pre-built.2\include\pthread.h"
+//#pragma comment 相对路径是引用工程到库路径的相对路径，而非xAutoLock.hpp到库目录的相对路径。
+#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVC2.lib")
+#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVCE2.lib")
+#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVSE2.lib")
 #else
 #include <pthread.h>
 #endif
-#include "baseclass.hpp"
+#include "xbaseclass.hpp"
+namespace SAEBASE{
 #define Mutex xMutex
 #define CONST_NAO_PER_SECOND 	1000000000L
 #define CONST_NAO_PER_MICRO 	1000L
@@ -187,3 +189,5 @@ protected:
 //	mythread[1].join();
 //
 //}
+
+}

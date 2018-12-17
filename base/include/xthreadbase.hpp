@@ -7,6 +7,7 @@
 #include "timebase.hpp"
 #include "xAutoLock.hpp"
 //pthread_mutex_t zx;
+namespace SAEBASE{
 xMutex zx;
 #pragma once
 typedef unsigned int (__stdcall*pfunc)(void*);
@@ -118,4 +119,5 @@ int xThread::join()
 void xThread::destory()
 {
 	CloseHandle(reinterpret_cast<HANDLE>(thr_id));
+}
 }
