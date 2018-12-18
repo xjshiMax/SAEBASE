@@ -113,19 +113,24 @@ public:
 		FILETIME	ft;
 		GetLocalTime( &system_time );
 		SystemTimeToFileTime(&system_time, &ft);  // converts to file time format
-		LONG uTime = ft.dwHighDateTime;
-		uTime <<= 32;
-		uTime |= ft.dwLowDateTime;
-		long  _nSec = static_cast<time_t>(uTime / (CONST_NAO_PER_SECOND / 100L));
-		long _nNSec = static_cast<long>(uTime % (CONST_NAO_PER_SECOND / 100L)) * 100L;
+
+		LONGLONG nLL;
+		ULARGE_INTEGER ui;
+		ui.LowPart = ft.dwLowDateTime;
+		ui.HighPart = ft.dwHighDateTime;
+		nLL = (ft.dwHighDateTime << 32) + ft.dwLowDateTime;
+		long  _nSec = (long)((LONGLONG)(ui.QuadPart - 116444736000000000)/10000000-28800);
+		long _nNSec = (long)((LONGLONG)(ui.QuadPart - 116444736000000000)*100%1000000000);
 #else
 		timeval time_value;
 		gettimeofday( &time_value, NULL );
 		LONGLONG _nSec = time_value.tv_sec;
 		LONGLONG _nNSec = time_value.tv_usec * CONST_NAO_PER_MICRO;
 #endif // CMX_WIN32_VER
-		struct timespec timeval_=abstime;
-		timeval_.tv_nsec+=_nSec;
+		struct timespec timeval_;
+		timeval_.tv_sec=abstime.tv_sec;
+		timeval_.tv_nsec=abstime.tv_nsec;
+		timeval_.tv_sec+=_nSec;
 		timeval_.tv_nsec+=_nNSec;
 		if(timeval_.tv_nsec>=CONST_NAO_PER_SECOND)
 		{
