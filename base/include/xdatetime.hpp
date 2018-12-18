@@ -77,6 +77,20 @@ namespace HelpTime
 		time_t t=time(NULL);
 #endif
 	}
+//获取当前时间秒数。
+	time_t SystemTimeToTimet(SYSTEMTIME st)
+	{
+		FILETIME ft;
+		SystemTimeToFileTime( &st, &ft );
+
+		LONGLONG nLL;
+		ULARGE_INTEGER ui;
+		ui.LowPart = ft.dwLowDateTime;
+		ui.HighPart = ft.dwHighDateTime;
+		nLL = (ft.dwHighDateTime << 32) + ft.dwLowDateTime;
+		time_t pt = (long)((LONGLONG)(ui.QuadPart - 116444736000000000) / 10000000);
+		return pt;
+	}
 }
 /*
 class xTimevar

@@ -1,3 +1,8 @@
+//2018-12-18
+//xheaptimer 作为定时器使用方法，
+//1）定义xheaptimer对象
+//2）定义xreactor，然后注册定时事件，启动xreactor
+//3）该定时器只作用一次。
 #pragma once
 #include<iostream>
 #ifdef WIN32
@@ -199,7 +204,6 @@ void xtime_heap::tick()
 		{
 			array[0]->cb_func(array[0]->user_data);
 		}
-		//这里不进行pop_timer, 定时器注册以后，可以一直相应，知道Reactor关闭或者用户调用删除定时器
 		pop_timer();
 		temp=array[0];
 	}
