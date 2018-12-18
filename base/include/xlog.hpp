@@ -14,8 +14,10 @@
 #include "xdatetime.hpp"
 #ifdef WIN32
 #include <io.h>
+#define _FILENAME(x) strrchr(x,'\\')?strrchr(x,'\\')+1:x
 #else
 #include <unistd.h>
+#define _FILENAME(x) strrchr(x,'/')?strrchr(x,'/')+1:x
 #endif
 namespace SAEBASE{
 typedef enum level{
@@ -88,7 +90,7 @@ public:
 	{
 		va_list ap;
 		va_start(ap,fmt);
-			log_help(XLOG_DEBUG,fmt,ap);
+			log_help(XLOG_INFO,fmt,ap);
 		va_end(ap);
 	}
 	void log_inner(int loglevel,char* buf)
@@ -163,6 +165,8 @@ private:
 			return 0;
 #if defined WIN32
 		r=_vsnprintf(buf,buflen,format,ap);
+		if(r<0)
+			_vscprintf(format,ap);
 #else
 		r=vsnprintf(buf,buflen,format,ap);
 #endif
@@ -211,13 +215,13 @@ xlog* xlogger::instance()
 }
 
 
-#define 	XLOG_ERROROUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(__FILE__,__LINE__);	xlogger::instance()->XlogError(const char*fmt,...);}while(0);
-#define 	XLOG_WORNINGOUT(fmt,...)	do{xlogger::instance()->SetWritefileAndLine(__FILE__,__LINE__);	xlogger::instance()->XlogWorning(const char*fmt,...);}while(0);
-#define		XLOG_NOTICEOUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(__FILE__,__LINE__);	xlogger::instance()->XlogNotice(const char*fmt,...);}while(0);
-#define		XLOG_INFOOUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(__FILE__,__LINE__);	xlogger::instance()->XlogInfo(const char*fmt,...);}while(0);
+#define 	XLOG_ERROROUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(_FILENAME(__FILE__),__LINE__);	xlogger::instance()->XlogError(fmt,##__VA_ARGS__);}while(0);
+#define 	XLOG_WORNINGOUT(fmt,...)	do{xlogger::instance()->SetWritefileAndLine(_FILENAME(__FILE__),__LINE__);	xlogger::instance()->XlogWorning(fmt,##__VA_ARGS__);}while(0);
+#define		XLOG_NOTICEOUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(_FILENAME(__FILE__),__LINE__);	xlogger::instance()->XlogNotice((fmt,##__VA_ARGS__);}while(0);
+#define		XLOG_INFOOUT(fmt,...)		do{xlogger::instance()->SetWritefileAndLine(_FILENAME(__FILE__),__LINE__);	xlogger::instance()->XlogInfo(fmt,##__VA_ARGS__);}while(0);
 #define		XLOG_DEBUGOUT(fmt,...)		do{ \
-	xlogger::instance()->SetWritefileAndLine(__FILE__,__LINE__); \
-	xlogger::instance()->XlogDebug(fmt);	\
+	xlogger::instance()->SetWritefileAndLine(_FILENAME(__FILE__),__LINE__); \
+	xlogger::instance()->XlogDebug(fmt,##__VA_ARGS__);	\
 }while(0);
 
 }
