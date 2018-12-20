@@ -310,7 +310,9 @@ bool Network_function::getPeerInfo(IN int socket,OUT char*ip,OUT int &port)
 	struct sockaddr_in name;
 	if(getPeerInfo(socket,name))
 	{
-		ip=(char*)name.sin_addr.s_addr;
+		if(sizeof(ip)<sizeof(inet_ntoa(name.sin_addr)))
+			return false;
+		strcpy(ip,inet_ntoa(name.sin_addr));
 		port=ntohs(name.sin_port);
 		return true;
 	}
@@ -321,7 +323,9 @@ bool Network_function::getLocalInfo(IN int socket,OUT char*ip,OUT int &port)
 	struct sockaddr_in name;
 	if ( getLocalInfo(socket, name) )
 	{
-		ip = (char*)name.sin_addr.s_addr;
+		if(sizeof(ip)<sizeof(inet_ntoa(name.sin_addr)))
+			return false;
+		strcpy(ip,inet_ntoa(name.sin_addr));
 		port = ntohs(name.sin_port);
 		return true;
 	} 
