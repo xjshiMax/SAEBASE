@@ -113,6 +113,13 @@ option_len： optval缓冲区的长度。
 	  m_sling.l_onoff=1; (就算调用closesocket，如果数据没发送完成，也可以短暂逗留。)
 	  m_sling.l_linger=5 // 容许逗留5秒
 	  setsockopt(socket,SOL_SOCKET,SO_LINGER,(const char*)&m_sling,sizeof(linger));
+//////////////////////////////////////////////////////////////////////////
+udp多播 （getsockopt()/setsockopt()）
+IP_MULTICAST_TTL		设置多播组数据的TTL值
+IP_ADD_MEMBERSHIP		在指定接口上加入组播组
+IP_DROP_MEMBERSHIP		退出组播组
+IP_MULTICAST_IF			获取默认接口或设置接口
+IP_MULTICAST_LOOP		禁止组播数据回送
 */
 inline static int SetSockOpt( int socket, int level, int option_name,
 	const char *option_value, size_t option_len)
@@ -187,15 +194,34 @@ inline static int ReadSocket(int socket,char* buf,int len ,int flags=0)
 	return recv(socket,buf,len,flags);
 #endif
 }
-//udp 发送接口
-inline static int SendTo(int s, const void *buf, int len, unsigned int flags, const struct sockaddr *to, int tolen)
+//sendto 用于udp发送数据。不会阻塞
+/*
+sockfd: 代表你与远程程序连接的套接字描述符
+msg:信息首地址
+len:要发送信息的长度
+flags:发送标记。一般都设为0。
+to: 是指向struct sockaddr结构的指针，里面包含了远程主机的IP地址和端口数据。
+tolen: to（ sizeof(struct sockaddr) ）的大小。
+返回值： 正确返回0，错误返回-1.
+*/
+inline static int Sendto(int sockfd, const char *msg, int len, unsigned int flags,
+	const struct sockaddr *to, int tolen)
 {
-	return sendto(s,buf,len,flags,to,tolen);
+	return sendto(sockfd,msg,len,flags,to,tolen);
 }
-//udp接收接口
-inline static int ReceFrom(int s, void *buf, int len, unsigned int flags, struct sockaddr *from, int *fromlen)
+//recvfrom : 用于udp的数据接收。会阻塞等待数据的到来
+/*
+sockfd: 需要读取数据的套接字描述符
+buf: 存储数据的内存缓冲区
+len: 缓存区的最大尺寸
+flags: 是recv（）函数的一个标志，一般都是0.
+from: 本地指针，指向一个struct sockaddr 的结构，(存有源IP和端口)
+fromlen: sizeof(strucr sockaddr)
+*/
+inline static int Recvfrom(int sockfd, char *buf, int len, unsigned int flags,
+struct sockaddr *from, int *fromlen)
 {
-	return  recvfrom( s, buf,  len,  flags, from, fromlen);
+	return recvfrom(sockfd,buf,len,flags,from,fromlen);
 }
 inline static int CloseSocket(int socket)
 {
@@ -272,7 +298,7 @@ bool Network_function::getLocalInfo(IN int socket ,OUT struct sockaddr_in &addr 
 	if(socket!=INVALID_SOCKET)
 	{
 		socklen_t namelen=sizeof(addr);
-		if(getpeername(socket,(struct sockaddr*)&addr,(socklen_t*)&namelen)==0)
+		if(getsockname(socket,(struct sockaddr*)&addr,(socklen_t*)&namelen)==0)
 		{
 			return true;
 		}
