@@ -187,6 +187,16 @@ inline static int ReadSocket(int socket,char* buf,int len ,int flags=0)
 	return recv(socket,buf,len,flags);
 #endif
 }
+//udp 发送接口
+inline static int SendTo(int s, const void *buf, int len, unsigned int flags, const struct sockaddr *to, int tolen)
+{
+	return sendto(s,buf,len,flags,to,tolen);
+}
+//udp接收接口
+inline static int ReceFrom(int s, void *buf, int len, unsigned int flags, struct sockaddr *from, int *fromlen)
+{
+	return  recvfrom( s, buf,  len,  flags, from, fromlen);
+}
 inline static int CloseSocket(int socket)
 {
 #ifdef WIN32
@@ -274,7 +284,9 @@ bool Network_function::getPeerInfo(IN int socket,OUT char*ip,OUT int &port)
 	struct sockaddr_in name;
 	if(getPeerInfo(socket,name))
 	{
-		ip=(char*)name.sin_addr.s_addr;
+		if(sizeof(ip)<sizeof(inet_ntoa(name.sin_addr)))
+			return false;
+		strcpy(ip,inet_ntoa(name.sin_addr));
 		port=ntohs(name.sin_port);
 		return true;
 	}
@@ -285,7 +297,9 @@ bool Network_function::getLocalInfo(IN int socket,OUT char*ip,OUT int &port)
 	struct sockaddr_in name;
 	if ( getLocalInfo(socket, name) )
 	{
-		ip = (char*)name.sin_addr.s_addr;
+		if(sizeof(ip)<sizeof(inet_ntoa(name.sin_addr)))
+			return false;
+		strcpy(ip,inet_ntoa(name.sin_addr));
 		port = ntohs(name.sin_port);
 		return true;
 	} 
