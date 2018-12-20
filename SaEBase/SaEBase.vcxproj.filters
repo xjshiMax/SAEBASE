@@ -78,6 +78,15 @@
     <ClInclude Include="..\base\include\xthreadPool.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\include\ontimebase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xUDPServerbase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExudpPoint.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
