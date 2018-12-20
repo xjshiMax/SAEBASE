@@ -11,6 +11,7 @@
 //           正常情况，队列未满且不空，任意线程读取（消耗），任意线程写入（生产）
 #include "xAutoLock.hpp"
 #include <deque>
+namespace SAEBASE{
 template <typename Taskobj>
 class xTaskqueue
 {
@@ -134,7 +135,7 @@ bool xTaskqueue<Taskobj>::waitForTask(Taskobj&node,const struct timespec& timeva
 		if(!m_IsActive || m_tasklist.empty())
 			return false;
 	}
-	node = m_tasklist.front();
+	node = *m_tasklist.front();
 	m_CurTaskCount-=1;
 	m_tasklist.pop_front();
 	if(m_CurWriteWaiter)
@@ -151,7 +152,7 @@ bool xTaskqueue<Taskobj>::pushTask(const Taskobj& node)
 		m_CondTaskFree.wait(m_LockTask);
 		--m_CurWriteWaiter;
 	}
-	m_tasklist.push_front(node);
+	m_tasklist.push_front((Taskobj*)&node);
 	++m_CurTaskCount;
 	if(m_CurWriteWaiter)
 		m_CondTask.signal();
@@ -182,7 +183,7 @@ bool xTaskqueue<Taskobj>::pushTaskWithTimeOut(const Taskobj& node,const struct t
 		if(!m_IsActive || queueIsFull())
 			return false;
 	}
-	m_tasklist.push_front(node);
+	m_tasklist.push_front((Taskobj*)&node);
 	++m_CurTaskCount;
 	if(m_CurWriteWaiter)
 		m_CondTask.signal();
