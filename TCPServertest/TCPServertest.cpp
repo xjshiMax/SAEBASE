@@ -9,6 +9,9 @@ class mytcpsvr:public xTcpServerBase
 	virtual int Onaccept(int socketfd,char*date,int len,IN xEventHandler *clientHandle=NULL)
 	{
 		printf(" in Onaccept!\n");
+		char ip[64];
+		int port;
+		this->GetPeerInfo(socketfd,ip,port);
 		return 0;
 	}
 	virtual int Ondata(int socketfd,char*date,int len)
