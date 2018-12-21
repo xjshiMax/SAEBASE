@@ -18,8 +18,8 @@ using namespace std;
 namespace SAEBASE{
 
 	enum{
-		xUDP_SERVER,		//不绑定本地端口
-		xUDP_CLIENT,		//绑定本地端口
+		xUDP_SERVER,		//绑定本地端口
+		xUDP_CLIENT,		//不绑定本地端口
 		xUDP_BROADCAST,		//广播 （服务端默认不保定本地端口）
 		xUDP_BROADCAST_CLIENT, //广播的客户端必须要绑定端口，
 		xUDP_MUTILCAST		//多播---xxxxxx-----
