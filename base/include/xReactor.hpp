@@ -48,6 +48,7 @@ private:
 	xReactorImplentation* m_reactorimp;
 
 };
+
 #define INITSIZE 100
 class xReactorImplentation
 {
@@ -163,4 +164,17 @@ int xReactorImplentation::RegisterTimeTask(xheaptimer* timerevent)
 	return 0;
 }
 
+//reactor µ¥Àý
+class ReactorInstance
+{
+public:
+	static xReactor* GetInstance()
+	{
+		if(m_reactor==NULL)
+			m_reactor=new xReactor();
+		return m_reactor£»
+	}
+private:
+	static xReactor* m_reactor=NULL;
+};
 }
