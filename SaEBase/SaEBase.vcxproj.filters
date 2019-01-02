@@ -87,6 +87,18 @@
     <ClInclude Include="..\base\include\ExudpPoint.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\base\include\ExTcpClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExActiveObj.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExHttpbase.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExHttpClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlogtest", "xlogtest\xlogte
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udptest", "udptest\udptest.vcxproj", "{CF93DECB-FF8A-4ACF-8DB8-482BCEFD819B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "activetest", "activetest\activetest.vcxproj", "{76204788-C84C-43E2-B7D9-5CD9059B7E14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -55,6 +57,10 @@ Global
 		{CF93DECB-FF8A-4ACF-8DB8-482BCEFD819B}.Debug|Win32.Build.0 = Debug|Win32
 		{CF93DECB-FF8A-4ACF-8DB8-482BCEFD819B}.Release|Win32.ActiveCfg = Release|Win32
 		{CF93DECB-FF8A-4ACF-8DB8-482BCEFD819B}.Release|Win32.Build.0 = Release|Win32
+		{76204788-C84C-43E2-B7D9-5CD9059B7E14}.Debug|Win32.ActiveCfg = Debug|Win32
+		{76204788-C84C-43E2-B7D9-5CD9059B7E14}.Debug|Win32.Build.0 = Debug|Win32
+		{76204788-C84C-43E2-B7D9-5CD9059B7E14}.Release|Win32.ActiveCfg = Release|Win32
+		{76204788-C84C-43E2-B7D9-5CD9059B7E14}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

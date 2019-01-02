@@ -79,6 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\base\include\basesock.hpp" />
+    <ClInclude Include="..\base\include\ExActiveObj.hpp" />
+    <ClInclude Include="..\base\include\ExHttpbase.hpp" />
+    <ClInclude Include="..\base\include\ExHttpClient.hpp" />
+    <ClInclude Include="..\base\include\ExTcpClient.hpp" />
     <ClInclude Include="..\base\include\ExudpPoint.hpp" />
     <ClInclude Include="..\base\include\ontimebase.hpp" />
     <ClInclude Include="..\base\include\singleton.hpp" />
