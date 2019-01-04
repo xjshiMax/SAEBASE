@@ -17,6 +17,7 @@
 #include <algorithm>
 using namespace std;
 //将字节流（二进制）转换成16机制数据。如果小于16，则在前面补‘0’
+namespace SAEBASE{
 /*
 hex:  4位2进制
 字节： 8为位2进制 （窄字符）
@@ -43,3 +44,11 @@ inline static string xToUpper(string srcstr)
 	std::transform(srcstr.begin(),srcstr.end(),srcstr.begin(),::toupper);
 	return srcstr;
 }
+//去掉头尾空格
+inline static string term(string s)
+{
+	s.erase(0,s.find_first_not_of(" "));
+	s.erase(s.find_last_not_of(" ")+1);
+	return s;
+}
+};
