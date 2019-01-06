@@ -172,6 +172,10 @@ public:
 			}
 			m_responsebody=message.substr(message.find_first_of(m_CRLF+m_CRLF)+4);
 		}
+		catch(std::exception & ee)
+		{
+
+		}
 
 	}
 

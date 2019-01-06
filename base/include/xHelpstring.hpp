@@ -16,6 +16,8 @@
 #include <string>
 #include <algorithm>
 using namespace std;
+#define OUT
+#define IN
 //将字节流（二进制）转换成16机制数据。如果小于16，则在前面补‘0’
 namespace SAEBASE{
 /*
@@ -28,7 +30,7 @@ inline static void bytesToHex(const void* pSrcBinary,unsigned int nSize,std::str
 {
 
 }
-inline static void HexToBytes(const void pstrHex,unsigned int nSize,OUT std::string &strRetBytes)
+inline static void HexToBytes(const void* pstrHex,unsigned int nSize,OUT std::string &strRetBytes)
 {
 
 }
@@ -45,7 +47,7 @@ inline static string xToUpper(string srcstr)
 	return srcstr;
 }
 //去掉头尾空格
-inline static string term(string s)
+inline static string strterm(string s)
 {
 	s.erase(0,s.find_first_not_of(" "));
 	s.erase(s.find_last_not_of(" ")+1);
