@@ -172,9 +172,10 @@ public:
 	{
 		if(m_reactor==NULL)
 			m_reactor=new xReactor();
-		return m_reactor£»
+		return m_reactor;
 	}
 private:
-	static xReactor* m_reactor=NULL;
+	static xReactor* m_reactor;;
 };
+xReactor* ReactorInstance::m_reactor=NULL;
 }

@@ -5,7 +5,7 @@
 */
 #include "xthreadbase.hpp"
 #include "xReactor.hpp"
-namespace SAE{
+namespace SAEBASE{
 class xReactorwithThread:public xReactor,public Threadbase
 {
 public:

@@ -15,6 +15,7 @@ class ExTcpClient
 public:
 	ExTcpClient()
 	{
+		InitSocket();
 		m_sockfd=CreateSocket(SOCK_STREAM);
 	}
 
