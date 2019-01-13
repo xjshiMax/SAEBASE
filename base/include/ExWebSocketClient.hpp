@@ -36,7 +36,7 @@ namespace SAEBASE
 		}
 		int Handshark(char* wsurl);
 		int SendSockdata(char* data,int len); //简易接口，不分包，不加mask,长度小于65535
-		int SendSockdata(char*data,int len,int fin,int mask);
+		int SendSockdata(char*data,int len,int fin,int mask,int pcode=0x1);
 		int SendPing();
 		int SendPong();
 		int HeartBeat(char*heatcontext,int heartlen);
@@ -115,33 +115,30 @@ namespace SAEBASE
 		if(m_status!=m_status_datafram)
 			return -1;
 		Dataframe frame;
-		char* strframe=frame.Encode2s(1,0x01,1,(unsigned int)len,data);
-		return m_client.sendMsg(strframe,strlen(strframe));
+		int framelen=0;
+		char* strframe=frame.Encode2s(1,0x01,1,(unsigned int)len,data,framelen);
+		return m_client.sendMsg(strframe,framelen);
 	}
-	int ExWebSocketClient::SendSockdata(char*data,int len,int fin,int mask)
+	int ExWebSocketClient::SendSockdata(char*data,int len,int fin,int mask,int pcode)//默认传输文本消息
 	{
 		xAutoLock L(m_lock);
 		if(m_status!=m_status_datafram)
 			return -1;
 		Dataframe frame;
-		char*  strframe=frame.Encode2s(fin,0x01,mask,(unsigned int)len,data);
-		return m_client.sendMsg(strframe,strlen(strframe));
+		char*  strframe=NULL;
+		int framelen=0;
+		strframe=frame.Encode2s(fin,pcode,mask,(unsigned int)len,data,framelen);
+		return m_client.sendMsg(strframe,framelen);
 		return 0;
 
 	}
 	int ExWebSocketClient::SendPing()
 	{
-		xAutoLock L(m_lock);
-		Dataframe frame;
-		char* strframe=frame.Encode2s(1,0x9,1,0,"");
-		return m_client.sendMsg(strframe,strlen(strframe));
+		return SendSockdata("",1,1,1,0x9);
 	}
 	int ExWebSocketClient::SendPong()
 	{
-		xAutoLock L(m_lock);
-		Dataframe frame;
-		char* strframe=frame.Encode2s(1,0xA,1,0,"");
-		return m_client.sendMsg(strframe,strlen(strframe));
+		return SendSockdata("",1,1,1,0xA);
 	}
 	int ExWebSocketClient::HeartBeat(char*heatcontext,int heartlen)
 	{
@@ -149,9 +146,6 @@ namespace SAEBASE
 	}
 	int ExWebSocketClient::Closewebsocket()
 	{
-		xAutoLock L(m_lock);
-		Dataframe frame;
-		char* strframe=frame.Encode2s(1,0x08,1,0,"");
-		return m_client.sendMsg(strframe,strlen(strframe));
+		return SendSockdata("",1,1,1,0x8);
 	}
 }

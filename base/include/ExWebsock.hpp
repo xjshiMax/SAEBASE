@@ -341,7 +341,7 @@ public:
 		return (char*)HeadM+string(m_MsgBody);
 		
 	}
-	char* Encode2s(int fin,char code,int mask,unsigned int datalen,char*databody,int maskkey=0)
+	char* Encode2s(int fin,char code,int mask,unsigned int datalen,char*databody,int &msglen)
 	{
 		if(datalen>65535)
 		{
@@ -391,6 +391,7 @@ public:
 		string resultmsg=msg;
 		//delete []msg;
 		delete []HeadM;
+		msglen=headlen+datalen;
 		return msg;
 	}
 	static unsigned int createMaskkey()
