@@ -83,20 +83,27 @@
     <ClInclude Include="..\base\include\ExHttpbase.hpp" />
     <ClInclude Include="..\base\include\ExHttpClient.hpp" />
     <ClInclude Include="..\base\include\ExHttpServer.hpp" />
+    <ClInclude Include="..\base\include\Exonevent.hpp" />
     <ClInclude Include="..\base\include\ExTcpClient.hpp" />
     <ClInclude Include="..\base\include\ExudpPoint.hpp" />
+    <ClInclude Include="..\base\include\ExWebsock.hpp" />
+    <ClInclude Include="..\base\include\ExWebSocketClient.hpp" />
+    <ClInclude Include="..\base\include\ExWebSocketServer.hpp" />
     <ClInclude Include="..\base\include\ontimebase.hpp" />
     <ClInclude Include="..\base\include\singleton.hpp" />
     <ClInclude Include="..\base\include\timebase.hpp" />
     <ClInclude Include="..\base\include\xAtomicInt32.hpp" />
     <ClInclude Include="..\base\include\xAutoLock.hpp" />
     <ClInclude Include="..\base\include\xbaseclass.hpp" />
+    <ClInclude Include="..\base\include\xcrypt.hpp" />
     <ClInclude Include="..\base\include\xdatetime.hpp" />
     <ClInclude Include="..\base\include\xDemultiplexerSelect.hpp" />
     <ClInclude Include="..\base\include\xEventDemultiplexer.hpp" />
     <ClInclude Include="..\base\include\xHelpstring.hpp" />
     <ClInclude Include="..\base\include\xlog.hpp" />
+    <ClInclude Include="..\base\include\xmd5Crypt.hpp" />
     <ClInclude Include="..\base\include\xReactor.hpp" />
+    <ClInclude Include="..\base\include\xReactorwithThread.h" />
     <ClInclude Include="..\base\include\xsmartPtr.hpp" />
     <ClInclude Include="..\base\include\xTaskqueue.h" />
     <ClInclude Include="..\base\include\xTcpServerBase.hpp" />
@@ -104,7 +111,6 @@
     <ClInclude Include="..\base\include\xthreadPool.hpp" />
     <ClInclude Include="..\base\include\xtimeheap.hpp" />
     <ClInclude Include="..\base\include\xUDPServerbase.hpp" />
-    <ClInclude Include="ExWebsock.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

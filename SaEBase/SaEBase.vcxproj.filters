@@ -99,10 +99,28 @@
     <ClInclude Include="..\base\include\ExHttpClient.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ExWebsock.hpp">
+    <ClInclude Include="..\base\include\ExHttpServer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\base\include\ExHttpServer.hpp">
+    <ClInclude Include="..\base\include\ExWebSocketClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExWebSocketServer.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xReactorwithThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\ExWebsock.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xcrypt.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\xmd5Crypt.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\include\Exonevent.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
