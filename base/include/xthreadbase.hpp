@@ -1,7 +1,10 @@
 #pragma once
 #ifdef WIN32
-#include <process.h>
-#include <Windows.h>
+	#include <process.h>
+	#include <Windows.h>
+#else
+	#define __stdcall
+	#include<pthread.h>
 #endif
 #include "stdio.h"
 #include "timebase.hpp"
@@ -10,7 +13,11 @@
 namespace SAEBASE{
 xMutex zx;
 #pragma once
-typedef unsigned int (__stdcall*pfunc)(void*);
+#ifdef  WIN32
+	typedef unsigned int (__stdcall*pfunc)(void*);
+#else
+	typedef void (__stdcall *pfunc)(void*);
+#endif
 //基于对象的模式
 class Threadbase
 {
@@ -26,8 +33,11 @@ public:
 	int set_thread_id(unsigned long thrID){thr_id=thrID;}
 
 protected:
+#ifdef WIN32
 	static unsigned int __stdcall thread_proxy(void* arg);
-
+#else
+	static void*  __stdcall thread_proxy(void* arg);
+#endif
 private:
 	size_t thr_id;			//线程id
 	bool bExit_;			//线程是否要退出标志
@@ -54,7 +64,11 @@ public:
 };
 
 
-unsigned int __stdcall Threadbase::thread_proxy(void* arg)
+#ifdef WIN32
+	 unsigned int __stdcall Threadbase::thread_proxy(void* arg)
+#else
+	 void*  __stdcall Threadbase::thread_proxy(void* arg)
+#endif
 {
 
 	xAutoLock antolock(zx);
@@ -75,6 +89,10 @@ int Threadbase::start()
 #ifdef WIN32
 	unsigned int nval=_beginthreadex(0,0,thread_proxy,this,0,&thr_id);
 	thr_id=nval;
+#else
+	pthread_attr_t attr;
+	int arg=0;
+	pthread_create(&thr_id,&attr,thread_proxy,this);
 #endif
 	return 0;
 }
@@ -86,12 +104,19 @@ int Threadbase::join()
 	{
 		printf("\n join thread %d finish\n",thr_id);
 	}
+#else
+	pthread_w
 #endif
 	return 0;
 }
 void Threadbase::destory()
 {
+#ifdef WIN32
 	CloseHandle(reinterpret_cast<HANDLE>(thr_id));
+#else
+	int thread_return;
+	pthread_exit((void*)&thread_return);
+#endif
 }
 //////////////////////////////////////////////////////////////////////////
 //xThread 实现

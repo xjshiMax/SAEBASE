@@ -3,14 +3,15 @@
 //pthread_mutex 和Mutex
 #pragma once
 #ifdef WIN32
-#include <Windows.h>
-#include "..\pthread\Pre-built.2\include\pthread.h"
+	#include <Windows.h>
+	#include "..\pthread\Pre-built.2\include\pthread.h"
 //#pragma comment 相对路径是引用工程到库路径的相对路径，而非xAutoLock.hpp到库目录的相对路径。
-#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVC2.lib")
-#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVCE2.lib")
-#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVSE2.lib")
+	#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVC2.lib")
+	#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVCE2.lib")
+	#pragma comment(lib,"../base/pthread/Pre-built.2/lib/pthreadVSE2.lib")
 #else
-#include <pthread.h>
+	#include <pthread.h>
+	#include<sys/time.h>
 #endif
 #include "xbaseclass.hpp"
 namespace SAEBASE{
@@ -60,7 +61,7 @@ public:
 	{
 		//pthread_mutex_lock(&m_mutex);
 		m_mutex->lock();
-		printf("lock\n");
+		//printf("lock\n");
 	}
 	~xAutoLock()
 	{
@@ -68,7 +69,7 @@ public:
 		if(m_mutex)
 			m_mutex->unlock();
 		m_mutex=NULL;
-		printf("unlock\n");
+		//printf("unlock\n");
 	}
 private:
 	const Mutex* m_mutex;

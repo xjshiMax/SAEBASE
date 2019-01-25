@@ -11,17 +11,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smartptrTest", "smartptrTes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ontimertest", "ontimertest\ontimertest.vcxproj", "{3BC30BBF-9389-481B-AEEE-7E20EAA80446}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFrame", "testFrame\testFrame.vcxproj", "{AB233F53-30C2-481A-909E-1D96A8F08B89}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "websocketclient", "websocketclient\websocketclient.vcxproj", "{2B45E629-0362-4DC0-864F-94596D9945FF}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inifile", "inifile\inifile.vcxproj", "{1B63959C-01D8-435D-9245-52FE689F4DF0}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "initest", "initest\initest.vcxproj", "{3CACFB9A-B239-465C-9C15-48BD99BD8923}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "jsoncpp\jsoncpp.vcxproj", "{468F6E8E-75D3-4589-96E5-790513FB3149}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testjsocpp", "testjsocpp\testjsocpp.vcxproj", "{D49B784D-4B51-4FBA-BC97-33323269FC08}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "webclient", "webclient\webclient.vcxproj", "{65AED644-6B40-4FF6-AB3C-0CFFCAA16202}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,22 +43,6 @@ Global
 		{3BC30BBF-9389-481B-AEEE-7E20EAA80446}.Debug|Win32.Build.0 = Debug|Win32
 		{3BC30BBF-9389-481B-AEEE-7E20EAA80446}.Release|Win32.ActiveCfg = Release|Win32
 		{3BC30BBF-9389-481B-AEEE-7E20EAA80446}.Release|Win32.Build.0 = Release|Win32
-		{AB233F53-30C2-481A-909E-1D96A8F08B89}.Debug|Win32.ActiveCfg = Debug|Win32
-		{AB233F53-30C2-481A-909E-1D96A8F08B89}.Debug|Win32.Build.0 = Debug|Win32
-		{AB233F53-30C2-481A-909E-1D96A8F08B89}.Release|Win32.ActiveCfg = Release|Win32
-		{AB233F53-30C2-481A-909E-1D96A8F08B89}.Release|Win32.Build.0 = Release|Win32
-		{2B45E629-0362-4DC0-864F-94596D9945FF}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2B45E629-0362-4DC0-864F-94596D9945FF}.Debug|Win32.Build.0 = Debug|Win32
-		{2B45E629-0362-4DC0-864F-94596D9945FF}.Release|Win32.ActiveCfg = Release|Win32
-		{2B45E629-0362-4DC0-864F-94596D9945FF}.Release|Win32.Build.0 = Release|Win32
-		{1B63959C-01D8-435D-9245-52FE689F4DF0}.Debug|Win32.ActiveCfg = Debug|Win32
-		{1B63959C-01D8-435D-9245-52FE689F4DF0}.Debug|Win32.Build.0 = Debug|Win32
-		{1B63959C-01D8-435D-9245-52FE689F4DF0}.Release|Win32.ActiveCfg = Release|Win32
-		{1B63959C-01D8-435D-9245-52FE689F4DF0}.Release|Win32.Build.0 = Release|Win32
-		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Debug|Win32.Build.0 = Debug|Win32
-		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Release|Win32.ActiveCfg = Release|Win32
-		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Release|Win32.Build.0 = Release|Win32
 		{468F6E8E-75D3-4589-96E5-790513FB3149}.Debug|Win32.ActiveCfg = Debug|Win32
 		{468F6E8E-75D3-4589-96E5-790513FB3149}.Debug|Win32.Build.0 = Debug|Win32
 		{468F6E8E-75D3-4589-96E5-790513FB3149}.Release|Win32.ActiveCfg = Release|Win32
@@ -73,6 +51,10 @@ Global
 		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Debug|Win32.Build.0 = Debug|Win32
 		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Release|Win32.ActiveCfg = Release|Win32
 		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Release|Win32.Build.0 = Release|Win32
+		{65AED644-6B40-4FF6-AB3C-0CFFCAA16202}.Debug|Win32.ActiveCfg = Debug|Win32
+		{65AED644-6B40-4FF6-AB3C-0CFFCAA16202}.Debug|Win32.Build.0 = Debug|Win32
+		{65AED644-6B40-4FF6-AB3C-0CFFCAA16202}.Release|Win32.ActiveCfg = Release|Win32
+		{65AED644-6B40-4FF6-AB3C-0CFFCAA16202}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -52,3 +52,7 @@ private:
 	Noncopyable& operator=(const Noncopyable&){};
 };
 }
+
+#ifndef WIN32
+	#define LONGLONG long long
+#endif
