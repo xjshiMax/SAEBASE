@@ -19,6 +19,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inifile", "inifile\inifile.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "initest", "initest\initest.vcxproj", "{3CACFB9A-B239-465C-9C15-48BD99BD8923}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "jsoncpp\jsoncpp.vcxproj", "{468F6E8E-75D3-4589-96E5-790513FB3149}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testjsocpp", "testjsocpp\testjsocpp.vcxproj", "{D49B784D-4B51-4FBA-BC97-33323269FC08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -61,6 +65,14 @@ Global
 		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Debug|Win32.Build.0 = Debug|Win32
 		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Release|Win32.ActiveCfg = Release|Win32
 		{3CACFB9A-B239-465C-9C15-48BD99BD8923}.Release|Win32.Build.0 = Release|Win32
+		{468F6E8E-75D3-4589-96E5-790513FB3149}.Debug|Win32.ActiveCfg = Debug|Win32
+		{468F6E8E-75D3-4589-96E5-790513FB3149}.Debug|Win32.Build.0 = Debug|Win32
+		{468F6E8E-75D3-4589-96E5-790513FB3149}.Release|Win32.ActiveCfg = Release|Win32
+		{468F6E8E-75D3-4589-96E5-790513FB3149}.Release|Win32.Build.0 = Release|Win32
+		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Debug|Win32.Build.0 = Debug|Win32
+		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Release|Win32.ActiveCfg = Release|Win32
+		{D49B784D-4B51-4FBA-BC97-33323269FC08}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

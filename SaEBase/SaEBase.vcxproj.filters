@@ -117,10 +117,10 @@
     <ClInclude Include="..\base\include\xcrypt.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\base\include\xmd5Crypt.hpp">
+    <ClInclude Include="..\base\include\Exonevent.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\base\include\Exonevent.hpp">
+    <ClInclude Include="..\base\include\xmd5.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

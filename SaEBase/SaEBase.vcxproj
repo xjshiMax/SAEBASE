@@ -101,7 +101,7 @@
     <ClInclude Include="..\base\include\xEventDemultiplexer.hpp" />
     <ClInclude Include="..\base\include\xHelpstring.hpp" />
     <ClInclude Include="..\base\include\xlog.hpp" />
-    <ClInclude Include="..\base\include\xmd5Crypt.hpp" />
+    <ClInclude Include="..\base\include\xmd5.hpp" />
     <ClInclude Include="..\base\include\xReactor.hpp" />
     <ClInclude Include="..\base\include\xReactorwithThread.h" />
     <ClInclude Include="..\base\include\xsmartPtr.hpp" />
