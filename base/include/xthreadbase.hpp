@@ -16,7 +16,7 @@ xMutex zx;
 #ifdef  WIN32
 	typedef unsigned int (__stdcall*pfunc)(void*);
 #else
-	typedef void (__stdcall *pfunc)(void*);
+	typedef void* (__stdcall pfunc)(void*);
 #endif
 //基于对象的模式
 class Threadbase
@@ -39,7 +39,11 @@ protected:
 	static void*  __stdcall thread_proxy(void* arg);
 #endif
 private:
-	size_t thr_id;			//线程id
+#ifdef WIN32
+	size_t thr_id;
+#else
+	pthread_t thr_id;
+#endif
 	bool bExit_;			//线程是否要退出标志
 
 };
@@ -59,7 +63,11 @@ public:
 	int get_thread_id(){return thr_id;}
 	int set_thread_id(unsigned long thrID){thr_id=thrID;}
 public:
+#ifdef WIN32
 	size_t thr_id;
+#else
+	pthread_t thr_id;
+#endif
 	bool bExit_;
 };
 
@@ -92,7 +100,7 @@ int Threadbase::start()
 #else
 	pthread_attr_t attr;
 	int arg=0;
-	pthread_create(&thr_id,&attr,thread_proxy,this);
+	pthread_create(&thr_id,NULL,thread_proxy,this);
 #endif
 	return 0;
 }
@@ -105,7 +113,7 @@ int Threadbase::join()
 		printf("\n join thread %d finish\n",thr_id);
 	}
 #else
-	pthread_w
+	pthread_join(thr_id,NULL);
 #endif
 	return 0;
 }
@@ -127,6 +135,8 @@ int xThread::start(pfunc func,void *arg)
 #ifdef WIN32
 	unsigned int nval=_beginthreadex(0,0,func,arg,0,&thr_id);
 	thr_id=nval;
+#else
+	pthread_create(&thr_id,NULL,func,arg);
 #endif
 	return 0;
 }
@@ -138,11 +148,18 @@ int xThread::join()
 	{
 		printf("\n join thread %d finish\n",thr_id);
 	}
+#else
+	pthread_join(thr_id,NULL);
 #endif
 	return 0;
 }
 void xThread::destory()
 {
+#ifdef WIN32
 	CloseHandle(reinterpret_cast<HANDLE>(thr_id));
+#else
+	int thread_return;
+	pthread_exit((void*)&thread_return);
+#endif
 }
 }
