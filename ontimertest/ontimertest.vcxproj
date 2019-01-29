@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B7C905C1-BDD0-4BDE-A095-BD82210941E0}</ProjectGuid>
+    <ProjectGuid>{3BC30BBF-9389-481B-AEEE-7E20EAA80446}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TCPServertest</RootNamespace>
+    <RootNamespace>ontimertest</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -83,8 +83,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ontimertest.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="TCPServertest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
