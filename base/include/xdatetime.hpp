@@ -35,12 +35,13 @@ int tm_wday; 星期–取值区间为[0,6]，其中0代表星期天，1代表星期一，以此类推
 #include <stdio.h>
 #include <time.h>
 #include <string>
-using namespace std;
 #else
 #include <time.h>
 #include <errno.h>
 #include <sys/time.h>
+#include <string>
 #endif
+using namespace std;
 //64bit 类型变量
 #define LONGLONG long int
 #define ULONGLONG unsigned long int
@@ -59,7 +60,12 @@ namespace HelpTime
 
 
 #else
-		time_t t=time(NULL);
+		struct tm *tblock;
+		time_t timer = time(NULL);
+		char strtime[64]={0};
+		tblock = localtime(&timer);
+		sprintf(strtime,"%04d-%02d-%02dT%02d:%02d:%02d",tblock->tm_year+1900,tblock->tm_mon+1,tblock->tm_mday,tblock->tm_hour,tblock->tm_min,tblock->tm_sec);
+		return strtime;
 #endif
 	}
 
@@ -78,6 +84,7 @@ namespace HelpTime
 #endif
 	}
 //获取当前时间秒数。
+#ifdef WIN32
 	time_t SystemTimeToTimet(SYSTEMTIME st)
 	{
 		FILETIME ft;
@@ -91,6 +98,7 @@ namespace HelpTime
 		time_t pt = (long)((LONGLONG)(ui.QuadPart - 116444736000000000) / 10000000);
 		return pt;
 	}
+#endif
 }
 /*
 class xTimevar

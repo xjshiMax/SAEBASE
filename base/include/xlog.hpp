@@ -16,9 +16,13 @@
 #include <io.h>
 #define _FILENAME(x) strrchr(x,'\\')?strrchr(x,'\\')+1:x
 #else
-#include <unistd.h>
-#define _FILENAME(x) strrchr(x,'/')?strrchr(x,'/')+1:x
+	#include <unistd.h>
+	#define _FILENAME(x) strrchr(x,'/')?strrchr(x,'/')+1:x
+	#include <string>
+#include <string.h>
+	#include<stdarg.h>
 #endif
+using namespace std;
 namespace SAEBASE{
 typedef enum level{
 	XLOG_ERROR,
@@ -43,7 +47,7 @@ public:
 #ifdef WIN32
 		m_FilePath="E:/aaa-shi/";
 #else
-		m_FilePath="/home/":
+		m_FilePath="/home/";
 #endif
 
 	}
@@ -54,7 +58,7 @@ public:
 #ifdef WIN32
 		m_FilePath="E:/aaa-shi/";
 #else
-		m_FilePath="/home/":
+		m_FilePath="/home/";
 #endif
 
 	}
