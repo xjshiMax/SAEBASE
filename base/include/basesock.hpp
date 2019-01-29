@@ -6,6 +6,8 @@
 3) 包含广播和多播
 */
 #pragma once
+#define IN
+#define OUT
 #ifdef WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>
@@ -17,6 +19,15 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <string.h>
+#include <arpa/inet.h> 
+#ifndef INVALID_SOCKET
+#define INVALID_SOCKET (SOCKET)(~0)
+#endif
+#ifndef SOCKADDR 
+#define SOCKADDR struct sockaddr
+#endif
+typedef int SOCKET;
 #endif
 namespace SAEBASE
 {
@@ -221,7 +232,11 @@ fromlen: sizeof(strucr sockaddr)
 inline static int Recvfrom(int sockfd, char *buf, int len, unsigned int flags,
 struct sockaddr *from, int *fromlen)
 {
+#ifdef WIN32
 	return recvfrom(sockfd,buf,len,flags,from,fromlen);
+#else
+	return recvfrom(sockfd,buf,len,flags,from,(socklen_t*)fromlen);
+#endif
 }
 inline static int CloseSocket(int socket)
 {

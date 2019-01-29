@@ -59,7 +59,7 @@ public:
 #ifdef WIN32
 		m_demultiplexer = new xSelectDemultiplexer();
 #else
-		m_demultiplexer = new xReactorImplentation();
+		m_demultiplexer = new xEpollDemultiplexer();
 #endif
 		//m_demultiplexer = static_cast<xEventDemultiplexer*>(new xEpollDemultiplexer());
 		m_eventtimer = new xtime_heap(INITSIZE);
