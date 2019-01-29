@@ -148,18 +148,18 @@ bool xTaskqueue<Taskobj>::pushTask(const Taskobj& node)
 	xAutoLock L(m_LockTask);
 	if(queueIsFull())
 	{
-		++m_CurWriteWaiter;
+		++m_CurWriteWaiter; 
 		m_CondTaskFree.wait(m_LockTask);
 		--m_CurWriteWaiter;
 	}
-	m_tasklist.push_front((Taskobj*)&node);
+	m_tasklist.push_back((Taskobj*)&node);
 	++m_CurTaskCount;
-	if(m_CurWriteWaiter)
+	if(m_CurReadWaiter)
 		m_CondTask.signal();
 	return true;
 }
 template <class Taskobj>
-bool xTaskqueue<Taskobj>::pushTaskWithTimeOut(const Taskobj& node,const struct timespec & timeval=maxTimeWait)
+bool xTaskqueue<Taskobj>::pushTaskWithTimeOut(const Taskobj& node,const struct timespec & timeval)
 {
 	xAutoLock L(m_LockTask);
 	if(!m_IsActive)
@@ -185,7 +185,8 @@ bool xTaskqueue<Taskobj>::pushTaskWithTimeOut(const Taskobj& node,const struct t
 	}
 	m_tasklist.push_front((Taskobj*)&node);
 	++m_CurTaskCount;
-	if(m_CurWriteWaiter)
+	if(m_CurReadWaiter)
 		m_CondTask.signal();
 	return true;
+}
 }
