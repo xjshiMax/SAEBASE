@@ -5,6 +5,13 @@
 2) ba64 º”√‹
 */
 #include<stdio.h>
+#include<stdlib.h>
+#ifndef IN
+#define IN
+#endif
+#ifndef OUT
+#define OUT
+#endif
 // namespace SAEBASE
 // {
 /*base64*/
