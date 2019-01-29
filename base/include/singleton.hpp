@@ -1,4 +1,4 @@
-#include "xReactor.hpp"
+//#include "xReactor.hpp"
 template <class T>
 class xsingleton
 {
@@ -11,6 +11,8 @@ protected:
 	static T* _instance;
 };
 
+template <class T>
+T* xsingleton<T>::_instance=NULL;
 template <class T>
 inline T* xsingleton<T>::instance()
 {
@@ -28,29 +30,29 @@ void xsingleton<T>::release()
 	_instance = 0;
 }
 
-#define DECLARE_SINGLETON_MEMBER(_Ty)   \
-	template <> _Ty* xsingleton<_Ty>::_instance = NULL;
+//#define DECLARE_SINGLETON_MEMBER(_Ty)   \
+//	template <> _Ty* xsingleton<_Ty>::_instance = NULL;
 
-class Global : public xsingleton<Global>
-{
-public:
-	Global(void);
-	~Global(void);
-
-	xReactor* g_reactor_ptr;
-};
-
-#define sGlobal Global::instance()
-
-DECLARE_SINGLETON_MEMBER(Global);
-
-Global::Global(void)
-{
-	g_reactor_ptr = new xReactor();
-}
-
-Global::~Global(void)
-{
-	delete g_reactor_ptr;
-	g_reactor_ptr = NULL;
-}
+// class Global : public xsingleton<Global>
+// {
+// public:
+// 	Global(void);
+// 	~Global(void);
+// 
+// 	xReactor* g_reactor_ptr;
+// };
+// 
+// #define sGlobal Global::instance()
+// 
+// DECLARE_SINGLETON_MEMBER(Global);
+// 
+// Global::Global(void)
+// {
+// 	g_reactor_ptr = new xReactor();
+// }
+// 
+// Global::~Global(void)
+// {
+// 	delete g_reactor_ptr;
+// 	g_reactor_ptr = NULL;
+// }
