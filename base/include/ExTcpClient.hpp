@@ -6,8 +6,8 @@
 12-28修改： 一般客户端不需要绑定端口，因为没有谁需要直到client的端口，随机绑定就好。
 */
 #pragma once
+#include<string>
 #include "basesock.hpp"
-#include "string"
 using namespace std;
 namespace SAEBASE{
 class ExTcpClient
