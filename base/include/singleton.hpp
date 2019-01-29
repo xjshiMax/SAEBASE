@@ -12,12 +12,12 @@ protected:
 };
 
 template <class T>
-T* xsingleton<T>::_instance=NULL;
+T* xsingleton<T>::_instance=new T();
 template <class T>
 inline T* xsingleton<T>::instance()
 {
-	if(!_instance)
-		_instance = new T;
+// 	if(!_instance)
+// 		_instance = new T; //将懒汉模式修改为饿汉模式，线程安全。
 	return _instance;
 }
 
