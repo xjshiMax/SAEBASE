@@ -113,9 +113,10 @@ void xtime_heap::percolate_down(int hole)
 		{
 			break;
 		}
-		array[hole] = temp;
+		//array[hole] = temp;
 
 	}
+	array[hole] = temp;// 在做小根对调整时，最后赋值。
 }
 void xtime_heap::resize() throw (std::exception)
 {
